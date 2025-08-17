@@ -27,7 +27,7 @@ const Auctions = () => {
 
   const handleDelete = async (id) => {
     if (!user?.token) { alert('Login required'); navigate('/login'); return; }
-    if (!confirm('Delete this auction?')) return;
+    if (!window.confirm('Delete this auction?')) return;
     try {
       await axiosInstance.delete(`/api/auctions/${id}`, {
         headers: { Authorization: `Bearer ${user.token}` }
